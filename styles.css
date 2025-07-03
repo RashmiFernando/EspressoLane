@@ -182,3 +182,44 @@ nav {
     background: #b38b56;
     transform: scale(1.05);
 }
+
+/* Menu Section */
+.menu {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.menu h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #5e3a20;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #5e3a20;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
