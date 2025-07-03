@@ -382,3 +382,38 @@ textarea {
         margin-bottom: 30px;
     }
 }
+
+/* Footer */
+footer {
+    background-color: #5e3a20;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links a {
+    color: white;
+    margin-left: 15px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #d4a76a;
+}
+
+@media screen and (max-width: 600px) {
+    footer .container {
+        flex-direction: column;
+    }
+    
+    .social-links {
+        margin-top: 15px;
+    }
+}
