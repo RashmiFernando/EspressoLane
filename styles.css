@@ -183,100 +183,174 @@ nav {
     transform: scale(1.05);
 }
 
-/* Menu Section */
-.menu {
-    padding: 80px 0;
-    background-color: white;
+/* Modern Menu Styles */
+.menu-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-.menu h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #5e3a20;
+.menu-title {
+  text-align: center;
+  color: #5e3a20;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0 auto;
-    max-width: 800px;
+.menu-table {
+  display: grid;
+  gap: 2px;
 }
 
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+.menu-header {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr;
+  background: #5e3a20;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px 8px 0 0;
+  font-weight: 600;
 }
 
-th {
-    background-color: #5e3a20;
-    color: white;
+.menu-row {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr;
+  align-items: center;
+  padding: 15px 20px;
+  background: #f9f5f0;
+  transition: all 0.3s ease;
 }
 
-tr:hover {
-    background-color: #f5f5f5;
+.menu-row:hover {
+  background: #f0e6d9;
+  transform: translateX(5px);
 }
 
-@media screen and (max-width: 600px) {
-    table {
-        display: block;
-        overflow-x: auto;
-    }
+.menu-item {
+  font-weight: 600;
+  color: #5e3a20;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-/* About Section */
+
+.item-icon {
+  color: #d4a76a;
+  font-size: 1.2rem;
+}
+
+.menu-desc {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.menu-price {
+  font-weight: 700;
+  color: #5e3a20;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .menu-header, .menu-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .menu-header div:nth-child(3),
+  .menu-row div:nth-child(3) {
+    text-align: right;
+  }
+}
+/* About Section Styles */
 .about {
-    padding: 80px 0;
-    background-color: #f5f5f5;
+  padding: 60px 0;
+  background: #f8f4ee; /* Light warm background */
 }
 
 .about h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #5e3a20;
+  text-align: center;
+  color: #5e3a20;
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 
 .about-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-text {
-    flex: 1;
-    padding-right: 40px;
+  flex: 1;
+  padding: 20px;
 }
 
-.about-text p {
-    margin-bottom: 20px;
+.lead {
+  font-size: 1.2rem;
+  color: #5e3a20;
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
-.about-text ul {
-    margin-left: 20px;
-    margin-bottom: 20px;
+.features-list {
+  margin-top: 25px;
 }
 
-.about-text li {
-    margin-bottom: 10px;
+.features-list li {
+  margin-bottom: 12px;
+  list-style: none;
+  position: relative;
+  padding-left: 30px;
+  color: #333;
+}
+
+.features-list li:before {
+  content: "✓";
+  color: #d4a76a;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
 }
 
 .about-image {
-    flex: 1;
+  flex: 1;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  object-fit: cover;
+  aspect-ratio: 4/3; /* Fixed proportion */
 }
 
-.about-image img {
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+  
+  .about-image {
     width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }
-
-@media screen and (max-width: 768px) {
+/* Responsive Adjustments */
+@media (max-width: 768px) {
     .about-content {
         flex-direction: column;
     }
-    
+    .about-image, 
     .about-text {
-        padding-right: 0;
-        margin-bottom: 30px;
+        width: 100%;
+    }
+    .about-image {
+        margin-bottom: 20px;
     }
 }
 
