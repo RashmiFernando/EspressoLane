@@ -1,0 +1,125 @@
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f9f5f0;
+            color: #5e3a20;
+        }
+        
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .menu-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .menu-header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        
+        /* Category Sections */
+        .category {
+            margin-bottom: 4rem;
+        }
+        
+        .category-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px dashed #d4a76a;
+        }
+        
+        .category-title h2 {
+            font-size: 1.8rem;
+            margin-right: 1rem;
+        }
+        
+        /* Menu Items Grid */
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .item-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .item-details {
+            padding: 1.5rem;
+        }
+        
+        .item-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .item-desc {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            min-height: 60px;
+        }
+        
+        .item-price {
+            font-weight: 700;
+            color: #5e3a20;
+            font-size: 1.1rem;
+        }
+        
+        /* View More Arrow */
+        .view-more {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .view-more-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #5e3a20;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .view-more-btn:hover {
+            background: #d4a76a;
+            transform: translateY(-3px);
+        }
+        
+        .arrow-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            margin-left: 10px;
+            color: #5e3a20;
+        }
+    
