@@ -60,10 +60,11 @@
         }
         
         .item-image {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-        }
+    width: 100%;
+    height: 200px;
+    object-fit: cover;  /* Fill container, cropping edges if needed */
+    object-position: center; /* Focus on center of image */
+}
         
         .item-details {
             padding: 1.5rem;
