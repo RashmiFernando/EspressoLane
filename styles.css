@@ -10,6 +10,7 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f9f9f9;
+	scroll-behavior: smooth;
 }
 
 .container {
@@ -29,6 +30,9 @@ nav {
     min-height: 8vh;
     background-color: #5e3a20;
     padding: 0 20px;
+	 position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo h1 {
@@ -149,6 +153,7 @@ nav {
     font-size: 3rem;
     margin-bottom: 20px;
     animation: slideDown 1s ease-out;
+	font-size: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 .hero-content p {
@@ -183,15 +188,16 @@ nav {
     transform: scale(1.05);
 }
 
-/* Modern Menu Styles */
+/* Menu Container */
 .menu-container {
   max-width: 800px;
-  margin: 40px auto;
-  padding: 30px;
+  margin: 2rem auto;
+  padding: 2rem;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
+
 
 .menu-title {
   text-align: center;
@@ -254,6 +260,28 @@ nav {
   color: #5e3a20;
   text-align: right;
 }
+/* View More Button */
+.view-more {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.view-more-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #5e3a20;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.view-more-btn:hover {
+  background: #d4a76a;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(94, 58, 32, 0.3);
+}
 
 /* Responsive */
 @media (max-width: 600px) {
@@ -276,6 +304,7 @@ nav {
   color: #5e3a20;
   font-size: 2rem;
   margin-bottom: 40px;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 .about-content {
@@ -364,6 +393,7 @@ nav {
     text-align: center;
     margin-bottom: 40px;
     color: #5e3a20;
+	font-size: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 .gallery-grid {
@@ -400,6 +430,7 @@ nav {
     text-align: center;
     margin-bottom: 40px;
     color: #5e3a20;
+	font-size: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 .contact-container {
