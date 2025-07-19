@@ -3,11 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Specialty Menu | Brew Haven</title>
-    <link rel="stylesheet" href="menu.css">
-       
+    <title>Specialty Menu | Expresso Cafe</title>
+    <link rel="stylesheet" href="item_menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Expresso Cafe</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
     <div class="menu-container">
         <div class="menu-header">
             <h1>OUR SPECIAL COFFEE</h1>
@@ -26,8 +48,8 @@
                     <div class="item-details">
                         <div class="item-name">Expresso</div>
                         <div class="item-desc">A simple and beautiful recipe with 21-year-old rice cream</div>
-                        <div class="item-price">Rs. 199 - Rs. 198</div>
-						<button class="add-to-cart" data-name="Expresso" data-price="199">Add to Cart</button>
+                        <div class="item-price">Rs. 199</div>
+                        <button class="add-to-cart" data-name="Expresso" data-price="199" data-image="images/expresso1.jpg">Add to Cart</button>
                     </div>
                 </div>
                 
@@ -37,54 +59,54 @@
                     <div class="item-details">
                         <div class="item-name">Latte</div>
                         <div class="item-desc">Whipped coffee with a luxurious texture</div>
-                        <div class="item-price">Rs. 199 - Rs. 250</div>
+                        <div class="item-price">Rs. 250</div>
+                        <button class="add-to-cart" data-name="Latte" data-price="250" data-image="images/latte.jpg">Add to Cart</button>
                     </div>
                 </div>
 
-                <!-- Item 2 -->
+                <!-- Item 3 -->
                 <div class="menu-item">
                     <img src="images/pureblack.jpg" alt="Pure Black Coffee" class="item-image">
                     <div class="item-details">
                         <div class="item-name">Pure Black Coffee</div>
-                        <div class="item-desc">Whipped coffee with a luxurious texture</div>
-                        <div class="item-price">Rs. 199 - Rs. 250</div>
+                        <div class="item-desc">Strong and bold black coffee for purists</div>
+                        <div class="item-price">Rs. 180</div>
+                        <button class="add-to-cart" data-name="Pure Black Coffee" data-price="180" data-image="images/pureblack.jpg">Add to Cart</button>
                     </div>
                 </div>
-                <!-- Item 2 -->
+                
+                <!-- Item 4 -->
                 <div class="menu-item">
                     <img src="images/cappucino1.jpg" alt="Cappucino" class="item-image">
                     <div class="item-details">
                         <div class="item-name">Cappucino</div>
-                        <div class="item-desc">Whipped coffee with a luxurious texture</div>
-                        <div class="item-price">Rs. 199 - Rs. 250</div>
+                        <div class="item-desc">Perfect balance of espresso, steamed milk, and foam</div>
+                        <div class="item-price">Rs. 220</div>
+                        <button class="add-to-cart" data-name="Cappucino" data-price="220" data-image="images/cappucino1.jpg">Add to Cart</button>
                     </div>
                 </div>
+                
                 <!-- Item 5 -->
                 <div class="menu-item">
                     <img src="images/dalgona.jpg" alt="Dalgona Coffee" class="item-image">
                     <div class="item-details">
                         <div class="item-name">Dalgona Coffee</div>
                         <div class="item-desc">Whipped coffee with a luxurious texture</div>
-                        <div class="item-price">Rs. 199 - Rs. 250</div>
+                        <div class="item-price">Rs. 280</div>
+                        <button class="add-to-cart" data-name="Dalgona Coffee" data-price="280" data-image="images/dalgona.jpg">Add to Cart</button>
                     </div>
                 </div>
+                
                 <!-- Item 6 -->
                 <div class="menu-item">
                     <img src="images/coffecaramel.jpg" alt="Caramel Coffee" class="item-image">
                     <div class="item-details">
                         <div class="item-name">Caramel Coffee</div>
-                        <div class="item-desc">Whipped coffee with a luxurious texture</div>
-                        <div class="item-price">Rs. 199 - Rs. 250</div>
+                        <div class="item-desc">Sweet caramel blended with rich coffee</div>
+                        <div class="item-price">Rs. 300</div>
+                        <button class="add-to-cart" data-name="Caramel Coffee" data-price="300" data-image="images/coffecaramel.jpg">Add to Cart</button>
                     </div>
                 </div>
-                
-                <!-- Add more hot coffee items -->
-            </div>
-            <div class="view-more">
-                <a href="hot-coffee.html" class="view-more-btn">
-                    View All Hot Coffee
-                    <span class="arrow-circle">→</span>
-                </a>
             </div>
         </div>
         
@@ -99,8 +121,9 @@
                     <img src="images/icedcoffee.jpg" alt="Iced Coffee" class="item-image">
                     <div class="item-details">
                         <div class="item-name">Iced Coffee</div>
-                        <div class="item-desc">Whipped coffee with a luxurious texture</div>
-                        <div class="item-price">Rs. 199 - Rs. 250</div>
+                        <div class="item-desc">Refreshing cold-brewed coffee served over ice</div>
+                        <div class="item-price">Rs. 230</div>
+                        <button class="add-to-cart" data-name="Iced Coffee" data-price="230" data-image="images/icedcoffee.jpg">Add to Cart</button>
                     </div>
                 </div>
 
@@ -109,27 +132,22 @@
                     <img src="images/icedamericano.jpg" alt="iced americano" class="item-image">
                     <div class="item-details">
                         <div class="item-name">Iced Americano</div>
-                        <div class="item-desc">Whipped coffee with a luxurious texture</div>
-                        <div class="item-price">Rs. 199 - Rs. 250</div>
-                    </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="menu-item">
-                    <img src="images/cappucino1.jpg" alt="Dalgona Coffee" class="item-image">
-                    <div class="item-details">
-                        <div class="item-name">Dalgona Coffee</div>
-                        <div class="item-desc">Whipped coffee with a luxurious texture</div>
-                        <div class="item-price">Rs. 199 - Rs. 250</div>
+                        <div class="item-desc">Espresso shots with cold water over ice</div>
+                        <div class="item-price">Rs. 210</div>
+                        <button class="add-to-cart" data-name="Iced Americano" data-price="210" data-image="images/icedamericano.jpg">Add to Cart</button>
                     </div>
                 </div>
                 
-                <!-- Add more iced coffee items -->
-            </div>
-            <div class="view-more">
-                <a href="iced-coffee.html" class="view-more-btn">
-                    View All Iced Coffee
-                    <span class="arrow-circle">→</span>
-                </a>
+                <!-- Item 3 -->
+                <div class="menu-item">
+                    <img src="images/cappucino1.jpg" alt="Iced Latte" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">Iced Latte</div>
+                        <div class="item-desc">Smooth espresso with cold milk over ice</div>
+                        <div class="item-price">Rs. 270</div>
+                        <button class="add-to-cart" data-name="Iced Latte" data-price="270" data-image="images/cappucino1.jpg">Add to Cart</button>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -145,30 +163,58 @@
                     <div class="item-details">
                         <div class="item-name">Churros</div>
                         <div class="item-desc">Crispy fried dough with cinnamon sugar</div>
-                        <div class="item-price">Rs. 140 - Rs. 270</div>
-						
+                        <div class="item-price">Rs. 200</div>
+                        <button class="add-to-cart" data-name="Churros" data-price="200" data-image="images/churouse.jpg">Add to Cart</button>
                     </div>
                 </div>
                 
                 <!-- Item 2 -->
                 <div class="menu-item">
-                    <img src="images/coffeecake.jpg" alt="Coffe cake" class="item-image">
+                    <img src="images/coffeecake.jpg" alt="Coffee cake" class="item-image">
                     <div class="item-details">
                         <div class="item-name">Coffee Cake</div>
                         <div class="item-desc">Layered dessert with coffee-soaked ladyfingers</div>
-                        <div class="item-price">Rs. 210 - Rs. 270</div>
+                        <div class="item-price">Rs. 240</div>
+                        <button class="add-to-cart" data-name="Coffee Cake" data-price="240" data-image="images/coffeecake.jpg">Add to Cart</button>
                     </div>
                 </div>
-                
-                <!-- Add more dessert items -->
-            </div>
-            <div class="view-more">
-                <a href="desserts.html" class="view-more-btn">
-                    View All Desserts
-                    <span class="arrow-circle">→</span>
-                </a>
             </div>
         </div>
     </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay">
+        <div class="cart">
+            <div class="cart-header">
+                <h3>Your Order</h3>
+                <button class="close-cart"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-content">
+                <div class="empty-cart-message">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                    <p>Add some delicious items to get started!</p>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <h4>Total: <span class="cart-total-value">Rs. 0</span></h4>
+                </div>
+                <button class="checkout-btn" disabled>Checkout</button>
+                <button class="clear-cart-btn">Clear Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <h3>Item Added to Cart!</h3>
+            <p>Your item has been successfully added to your cart.</p>
+        </div>
+    </div>
+
+    <script src="menu_js.js"></script>
 </body>
 </html>
