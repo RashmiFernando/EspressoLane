@@ -1,4 +1,4 @@
-// Enhanced Cart Functionality for Menu Page
+// Enhanced Cart Functionality for Menu Page with Custom Modals
 class ShoppingCart {
     constructor() {
         this.cart = [];
@@ -14,6 +14,11 @@ class ShoppingCart {
         this.clearCartBtn = document.querySelector('.clear-cart-btn');
         this.successMessage = document.getElementById('successMessage');
         
+        // Modal Elements
+        this.confirmModal = document.getElementById('confirmModal');
+        this.successModal = document.getElementById('successModal');
+        this.clearCartModal = document.getElementById('clearCartModal');
+        
         this.init();
     }
     
@@ -22,6 +27,85 @@ class ShoppingCart {
         this.renderCart();
         this.attachEventListeners();
         this.initMobileMenu();
+        this.initModals();
+    }
+    
+    initModals() {
+        // Checkout Confirmation Modal
+        const cancelCheckout = document.getElementById('cancelCheckout');
+        const confirmCheckout = document.getElementById('confirmCheckout');
+        
+        if (cancelCheckout) {
+            cancelCheckout.addEventListener('click', () => {
+                this.hideModal(this.confirmModal);
+            });
+        }
+        
+        if (confirmCheckout) {
+            confirmCheckout.addEventListener('click', () => {
+                this.hideModal(this.confirmModal);
+                this.processOrder();
+            });
+        }
+        
+        // Success Modal
+        const closeSuccess = document.getElementById('closeSuccess');
+        if (closeSuccess) {
+            closeSuccess.addEventListener('click', () => {
+                this.hideModal(this.successModal);
+            });
+        }
+        
+        // Clear Cart Modal
+        const cancelClear = document.getElementById('cancelClear');
+        const confirmClear = document.getElementById('confirmClear');
+        
+        if (cancelClear) {
+            cancelClear.addEventListener('click', () => {
+                this.hideModal(this.clearCartModal);
+            });
+        }
+        
+        if (confirmClear) {
+            confirmClear.addEventListener('click', () => {
+                this.hideModal(this.clearCartModal);
+                this.performClearCart();
+            });
+        }
+        
+        // Close modals when clicking overlay
+        [this.confirmModal, this.successModal, this.clearCartModal].forEach(modal => {
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        this.hideModal(modal);
+                    }
+                });
+            }
+        });
+        
+        // Close modals with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.hideModal(this.confirmModal);
+                this.hideModal(this.successModal);
+                this.hideModal(this.clearCartModal);
+            }
+        });
+    }
+    
+    showModal(modal) {
+        if (modal) {
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    
+    hideModal(modal) {
+        if (modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
     }
     
     attachEventListeners() {
@@ -238,52 +322,82 @@ class ShoppingCart {
     }
     
     clearCart() {
-        if (this.cart.length === 0) return;
-        
-        if (confirm('Are you sure you want to clear your cart?')) {
-            this.cart = [];
-            this.saveCart();
-            this.renderCart();
-            this.updateCartCount();
-            this.calculateTotal();
-            this.showSuccessMessage('Cart cleared successfully!');
+        if (this.cart.length === 0) {
+            this.showSuccessMessage('Cart is already empty!');
+            return;
         }
+        
+        // Show clear cart confirmation modal
+        this.showModal(this.clearCartModal);
+    }
+    
+    performClearCart() {
+        this.cart = [];
+        this.saveCart();
+        this.renderCart();
+        this.updateCartCount();
+        this.calculateTotal();
+        this.showSuccessMessage('Cart cleared successfully!');
     }
     
     checkout() {
         if (this.cart.length === 0) {
-            alert('Your cart is empty!');
+            this.showSuccessMessage('Your cart is empty!');
             return;
         }
         
-        // Create order summary
-        const orderSummary = this.cart.map(item => 
-            `${item.name} x${item.quantity} - Rs. ${(item.price * item.quantity).toFixed(0)}`
-        ).join('\n');
+        // Update order summary in modal
+        this.updateOrderSummary();
         
-        const totalAmount = this.total.toFixed(0);
+        // Show confirmation modal
+        this.showModal(this.confirmModal);
+    }
+    
+    updateOrderSummary() {
+        const orderItemsContainer = document.getElementById('orderItems');
+        const modalTotal = document.getElementById('modalTotal');
         
-        const confirmOrder = confirm(
-            `Order Summary:\n\n${orderSummary}\n\nTotal: Rs. ${totalAmount}\n\nProceed to checkout?`
-        );
+        if (orderItemsContainer) {
+            orderItemsContainer.innerHTML = this.cart.map(item => `
+                <div class="order-item">
+                    <div class="order-item-details">
+                        <div class="order-item-name">${item.name}</div>
+                        <div class="order-item-quantity">Qty: ${item.quantity}</div>
+                    </div>
+                    <div class="order-item-price">Rs. ${(item.price * item.quantity).toFixed(0)}</div>
+                </div>
+            `).join('');
+        }
         
-        if (confirmOrder) {
-            // Simulate order processing
-            this.processOrder();
+        if (modalTotal) {
+            modalTotal.textContent = `Rs. ${this.total.toFixed(0)}`;
         }
     }
     
     processOrder() {
         // Show loading state
         this.checkoutBtn.disabled = true;
-        this.checkoutBtn.textContent = 'Processing...';
+        this.checkoutBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
         
         // Simulate API call delay
         setTimeout(() => {
-            // Order successful
+            // Generate order number
             const orderNumber = Math.floor(Math.random() * 10000) + 1000;
             
-            alert(`Order placed successfully!\n\nOrder Number: #${orderNumber}\nTotal: Rs. ${this.total.toFixed(0)}\n\nThank you for your order! We'll have it ready soon.`);
+            // Update success modal content
+            const orderNumberEl = document.getElementById('orderNumber');
+            const successTotal = document.getElementById('successTotal');
+            
+            if (orderNumberEl) {
+                orderNumberEl.textContent = `#${orderNumber}`;
+            }
+            
+            if (successTotal) {
+                successTotal.textContent = `Rs. ${this.total.toFixed(0)}`;
+            }
+            
+            // Show success modal
+            this.showModal(this.successModal);
             
             // Clear cart after successful order
             this.cart = [];
@@ -296,10 +410,13 @@ class ShoppingCart {
             this.hideCart();
             
             // Reset button
-            this.checkoutBtn.textContent = 'Checkout';
+            this.checkoutBtn.innerHTML = 'Checkout';
             this.checkoutBtn.disabled = false;
             
-            this.showSuccessMessage('Order placed successfully!');
+            // Show success message
+            setTimeout(() => {
+                this.showSuccessMessage('Order placed successfully!');
+            }, 1000);
         }, 2000);
     }
     
